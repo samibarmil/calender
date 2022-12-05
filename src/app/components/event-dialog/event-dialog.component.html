@@ -1,0 +1,12 @@
+<div class="eventDialog">
+<h1 mat-dialog-title>{{event.title}}</h1>
+<mat-dialog-content>
+  {{event.startTime + " - " + event.endTime}}
+  <br/>
+  {{event.description}}
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+</mat-dialog-actions>
+</div>

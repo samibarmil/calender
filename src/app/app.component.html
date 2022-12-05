@@ -1,0 +1,109 @@
+<div class="header">
+  <h1>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h1>
+  <div class="calendarControl">
+    <button
+        class="btn btn-primary"
+        mwlCalendarPreviousView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        [excludeDays]="excludeDays"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+      &lt;
+      </button>
+      <button
+        class="btn btn-outline-secondary"
+        mwlCalendarToday
+        [(viewDate)]="viewDate"
+      >
+        Today
+      </button>
+      <button
+        class="btn btn-primary"
+        mwlCalendarNextView
+        [view]="view"
+        [(viewDate)]="viewDate"
+        [excludeDays]="excludeDays"
+        (viewDateChange)="closeOpenMonthViewDay()"
+      >
+      &gt;
+      </button>
+      <button (click)="openSettingsDialog()">
+        settings
+      </button>
+  </div>
+</div>
+
+<!-- <ng-template #customCellTemplate let-day="day">
+  <div *ngFor="let e of day.events">
+  <span class="cal-day-number"></span>
+      <button class="customEvent" style="padding: 4px 0px; width: 100%; background-color: rgb(203, 203, 203); border-width: 0; margin: 4px 0px; font-size: 10px;">
+        {{e.start.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) + " " + e.title}}
+      </button>
+    </div>
+</ng-template> -->
+<!-- <ng-template #customCellTemplate let-day="day" let-locale="locale" 
+    let-highlightDay="highlightDay" let-unhighlightDay="unhighlightDay" 
+    let-eventClicked="eventClicked"
+    >
+    <div class="cal-cell-top">
+        <span class="cal-day-number">
+        {{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+    </div>
+    <div>
+        <div  *ngFor="let event of day.events; trackBy: trackByEventId; index as i">
+            <ng-template *ngIf="i < EVENT_LIMIT; then showEventsBlock;">
+            </ng-template>
+            <ng-template #showEventsBlock>
+                <button class="cal-events" *ngIf="i < EVENT_LIMIT" [ngStyle]="{ backgroundColor: event.color?.primary }"
+                [ngClass]="event?.cssClass" (click)="openEventDialog(event)">
+                    {{event.title}}
+                </button>
+            </ng-template>
+        </div>
+    </div>
+
+</ng-template> -->
+
+<!-- <ng-template #customCellTemplate let-day="day">
+  <div *ngFor="let e of day.events">
+      <button class="customEvent">
+        {{e.title}}
+      </button>
+    </div>
+</ng-template> -->
+<ng-template #loading>
+  <div class="text-center">
+    <i class="fas fa-spin fa-spinner fa-5x"></i> <br />
+    Loading events...
+  </div>
+</ng-template>
+
+
+  <ng-template #customCellTemplate let-day="day" let-locale="locale" 
+    let-highlightDay="highlightDay" let-unhighlightDay="unhighlightDay" 
+    let-eventClicked="eventClicked"
+    >
+    <div class="cal-cell-top">
+        <span class="cal-day-number">
+        {{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+    </div>
+    <div>
+        <div  *ngFor="let event of day.events; trackBy: trackByEventId; index as i">
+            <ng-template *ngIf="i < EVENT_LIMIT; then showEventsBlock;">
+            </ng-template>
+            <ng-template #showEventsBlock>
+                <button class="cal-events" *ngIf="i < EVENT_LIMIT" [ngStyle]="{ backgroundColor: event.color?.primary }"
+                [ngClass]="event?.cssClass" (click)="openEventDialog(event)">
+                    {{event.title}}
+                </button>
+            </ng-template>
+        </div>
+    </div>
+
+</ng-template>
+
+  <mwl-calendar-month-view [cellTemplate]="customCellTemplate" [viewDate]="viewDate" [events]="events" [excludeDays]="excludeDays"></mwl-calendar-month-view>
+
+
+

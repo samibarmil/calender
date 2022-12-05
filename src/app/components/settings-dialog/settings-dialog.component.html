@@ -1,0 +1,13 @@
+<div class="settingsDialog">
+    <h1 mat-dialog-title>Settings</h1>
+
+    <mat-dialog-content>
+        <input type="checkbox" value="weekendVisable" [checked]="weekendVisiable" 
+        (change)="weekendVisiable = !weekendVisiable">
+        <label>show weekends?</label>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button (click)="save()">Save</button>
+        <button mat-button mat-dialog-close>Cancel</button>
+      </mat-dialog-actions>
+</div>
