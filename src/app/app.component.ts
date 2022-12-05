@@ -40,7 +40,7 @@ const colors: Record<string, EventColor> = {
 
 export class AppComponent implements OnInit {
   excludeDays: number[] = [];
-  events$: Observable<CalendarEvent[]>;
+  //events$: Observable<CalendarEvent[]>;
   events: CalendarEvent[] = [];
 
   constructor(private dialog: MatDialog, private eventsService : EventsServiceService, private httpclient: HttpClient){
@@ -72,43 +72,43 @@ export class AppComponent implements OnInit {
 
   }
 
-  fetchEvents() {
-    // console.log("calling fetch");
-    // const date = new Date();
-    // const start = `${date.getMonth() == 1? (date.getFullYear()) : (date.getFullYear()-1)}-${date.getMonth()-1}-01`;
-    // const end = `${date.getMonth() == 12? (date.getFullYear()) : (date.getFullYear()+1)}-${date.getMonth()+1}-01`;
+  // fetchEvents() {
+  //   // console.log("calling fetch");
+  //   // const date = new Date();
+  //   // const start = `${date.getMonth() == 1? (date.getFullYear()) : (date.getFullYear()-1)}-${date.getMonth()-1}-01`;
+  //   // const end = `${date.getMonth() == 12? (date.getFullYear()) : (date.getFullYear()+1)}-${date.getMonth()+1}-01`;
 
 
-      // map(({events}:{events: customEvent[]}) => {
-      //     return events.map((event: customEvent)=>{ 
-      //       return{
-      //               id: event.id,
-      //               title: event.title,
-      //               start: event.startTime,
-      //               end: event.endTime,
-      //               meta: event.description
-      //         };
-      //       });
-      //     })
-      // );
+  //     // map(({events}:{events: customEvent[]}) => {
+  //     //     return events.map((event: customEvent)=>{ 
+  //     //       return{
+  //     //               id: event.id,
+  //     //               title: event.title,
+  //     //               start: event.startTime,
+  //     //               end: event.endTime,
+  //     //               meta: event.description
+  //     //         };
+  //     //       });
+  //     //     })
+  //     // );
           
-    // this.eventsService.getCalendarEvents( this.eventsService.getEvents());
-  //   this.events$ = this.eventsService.getEvents().pipe(
-  //     map(({data}:{data: {id: number, title: string, description:string, startTime: string, endTime: string}[]}) => 
-  //       {
-  //         return data.map((event: customEvent)=>
-  //         { 
-  //           return{
-  //                   id: 1,
-  //                   title: "hello",
-  //                   start: new Date(),
-  //                   meta: "this is description"
-  //             };
-  //           });
-  //         }));
+  //   // this.eventsService.getCalendarEvents( this.eventsService.getEvents());
+  // //   this.events$ = this.eventsService.getEvents().pipe(
+  // //     map(({data}:{data: {id: number, title: string, description:string, startTime: string, endTime: string}[]}) => 
+  // //       {
+  // //         return data.map((event: customEvent)=>
+  // //         { 
+  // //           return{
+  // //                   id: 1,
+  // //                   title: "hello",
+  // //                   start: new Date(),
+  // //                   meta: "this is description"
+  // //             };
+  // //           });
+  // //         }));
 
+  // // }
   // }
-  }
 
   
   title = 'calender';

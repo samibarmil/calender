@@ -1,8 +1,12 @@
 <div class="header">
-  <h1>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h1>
-  <div class="calendarControl">
+  <h1 class="cur-month">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h1>
+  <div class="header-element">
+    <button class="control-button" mat-button (click)="openSettingsDialog()">
+      settings
+    </button>
     <button
-        class="btn btn-primary"
+        class="control-button-arrow"
+        mat-button
         mwlCalendarPreviousView
         [view]="view"
         [(viewDate)]="viewDate"
@@ -12,14 +16,16 @@
       &lt;
       </button>
       <button
-        class="btn btn-outline-secondary"
+        class="control-button-arrow"
+        mat-button
         mwlCalendarToday
         [(viewDate)]="viewDate"
       >
         Today
       </button>
       <button
-        class="btn btn-primary"
+        class="control-button-arrow"
+        mat-button
         mwlCalendarNextView
         [view]="view"
         [(viewDate)]="viewDate"
@@ -27,9 +33,6 @@
         (viewDateChange)="closeOpenMonthViewDay()"
       >
       &gt;
-      </button>
-      <button (click)="openSettingsDialog()">
-        settings
       </button>
   </div>
 </div>
@@ -93,7 +96,7 @@
             <ng-template *ngIf="i < EVENT_LIMIT; then showEventsBlock;">
             </ng-template>
             <ng-template #showEventsBlock>
-                <button class="cal-events" *ngIf="i < EVENT_LIMIT" [ngStyle]="{ backgroundColor: event.color?.primary }"
+                <button mat-button class="cal-events" *ngIf="i < EVENT_LIMIT" [ngStyle]="{ backgroundColor: event.color?.primary }"
                 [ngClass]="event?.cssClass" (click)="openEventDialog(event)">
                     {{event.title}}
                 </button>
@@ -102,6 +105,9 @@
     </div>
 
 </ng-template>
+<!-- <div *ngIf="events$ | async; else loading; let apievents">
+  <li *ngFor="let event of apievents">{{event.title}}</li>
+</div> -->
 
   <mwl-calendar-month-view [cellTemplate]="customCellTemplate" [viewDate]="viewDate" [events]="events" [excludeDays]="excludeDays"></mwl-calendar-month-view>
 

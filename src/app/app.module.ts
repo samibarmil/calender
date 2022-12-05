@@ -8,6 +8,7 @@ import { SettingsDialogComponent } from './components/settings-dialog/settings-d
 import { EventDialogComponent } from './components/event-dialog/event-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 import {HttpClientModule} from '@angular/common/http'
 import { EventsServiceService } from './services/events-service.service';
 
@@ -23,7 +24,8 @@ import { EventsServiceService } from './services/events-service.service';
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
     BrowserAnimationsModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule
   ],
   providers: [EventsServiceService],
   bootstrap: [AppComponent],
